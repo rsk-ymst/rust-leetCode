@@ -4,6 +4,9 @@ use core::num;
 use std::{array, borrow::BorrowMut};
 // use sort;
 
+// ["MyCircularQueue","enQueue","enQueue","enQueue","enQueue","Rear","isFull","deQueue","enQueue","Rear"]
+// [[3],[1],[2],[3],[4],[],[],[],[4],[]]
+
 fn main() {
     // println!("Hello, world!");
     //
@@ -16,6 +19,12 @@ fn main() {
     let mut x  = queue::MyCircularQueue::new(3);
 
     x.en_queue(1);
+    x.en_queue(2);
+    x.en_queue(3);
+    x.en_queue(4);
+    x.rear();
+    x.is_full();
+
 }
 
 // struct Solution {
@@ -221,3 +230,25 @@ fn main() {
 //         }
 //     }
 // }
+
+
+#[cfg(test)]
+mod tests {
+    use crate::queue::MyCircularQueue;
+
+    #[test]
+    fn it_works() {
+        let mut x  = MyCircularQueue::new(3);
+
+        x.en_queue(1);
+        assert_eq!(x.en_queue(1), true);
+
+        x.en_queue(2);
+        x.en_queue(3);
+        x.en_queue(4);
+        x.rear();
+        x.is_full();
+
+        assert_eq!(2 + 2, 4);
+    }
+}
