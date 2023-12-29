@@ -26,7 +26,7 @@ impl MySolution {
 
 impl BestSolution {
     pub fn dominant_index(nums: Vec<i32>) -> i32 {
-         if nums.len() < 2 {
+        if nums.len() < 2 {
             return 0;
         }
         let (mut first, mut second) = (-1, -1);

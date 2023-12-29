@@ -1,13 +1,30 @@
 mod queue;
+mod test;
+mod inter_mut;
+mod array;
 
 use core::num;
-use std::{array, borrow::BorrowMut};
+use std::{borrow::BorrowMut};
 // use sort;
+
+// mod linked_list;
+mod my_box;
+mod rc;
+// mod linked_list;
+mod ref_vs_anb;
 
 // ["MyCircularQueue","enQueue","enQueue","enQueue","enQueue","Rear","isFull","deQueue","enQueue","Rear"]
 // [[3],[1],[2],[3],[4],[],[],[],[4],[]]
 
 fn main() {
+    // let c = my_box::CustomSmartPointer { data: String::from("my stuff") };      // 俺のもの
+    // let d = my_box::CustomSmartPointer { data: String::from("other stuff") };   // 別のもの
+    // println!("CustomSmartPointers created.");
+
+    // inter_mut::test();
+    // rc::test();
+    // linked_list::test();
+    ref_vs_anb::test();
     // println!("Hello, world!");
     //
     // let mut nums = vec![0, 1, 2, 3, 4];
@@ -16,15 +33,18 @@ fn main() {
     //     println!("e -> {}, *e -> {}", e, *e);
     // }
 
-    let mut x  = queue::MyCircularQueue::new(3);
+    // let mut x  = queue::MyCircularQueue::new(3);
 
-    x.en_queue(1);
-    x.en_queue(2);
-    x.en_queue(3);
-    x.en_queue(4);
-    x.rear();
-    x.is_full();
+    // x.en_queue(1);
+    // x.en_queue(2);
+    // x.en_queue(3);
+    // x.en_queue(4);
+    // x.rear();
+    // x.is_full();
 
+    // my_box::make_box();
+
+    // assert_mem_uninitialized_valid();
 }
 
 // struct Solution {
@@ -230,25 +250,3 @@ fn main() {
 //         }
 //     }
 // }
-
-
-#[cfg(test)]
-mod tests {
-    use crate::queue::MyCircularQueue;
-
-    #[test]
-    fn it_works() {
-        let mut x  = MyCircularQueue::new(3);
-
-        x.en_queue(1);
-        assert_eq!(x.en_queue(1), true);
-
-        x.en_queue(2);
-        x.en_queue(3);
-        x.en_queue(4);
-        x.rear();
-        x.is_full();
-
-        assert_eq!(2 + 2, 4);
-    }
-}
